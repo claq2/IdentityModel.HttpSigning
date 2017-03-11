@@ -114,15 +114,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\IdentityModel.HttpSigning\IdentityModel.HttpSigning.csproj">
       <Project>{3bc9546f-8d64-4fc8-8e7a-eeb19b7c2fc9}</Project>
       <Name>IdentityModel.HttpSigning</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

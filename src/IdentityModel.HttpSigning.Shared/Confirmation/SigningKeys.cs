@@ -7,7 +7,11 @@ using IdentityModel.Jwt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if !PORTABLE
 using System.Security.Cryptography;
+#else
+using PCLCrypto;
+#endif
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +32,11 @@ namespace IdentityModel.HttpSigning
 
     public class SymmetricKey : SigningKey
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(SymmetricKey));
+#endif
 
         public SymmetricKey(JsonWebKey jwk) : base(jwk)
         {
@@ -70,7 +78,11 @@ namespace IdentityModel.HttpSigning
 
     public class RSAPublicKey : SigningKey
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(RSAPublicKey));
+#endif
 
         public RSAPublicKey(JsonWebKey jwk) : base(jwk)
         {

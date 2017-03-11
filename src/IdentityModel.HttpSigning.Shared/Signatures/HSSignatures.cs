@@ -2,9 +2,13 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+#if PORTABLE
+using JosePCL;
+#else
 using Jose;
+//using System.Security.Cryptography;
+#endif
 using System;
-using System.Security.Cryptography;
 
 namespace IdentityModel.HttpSigning
 {

@@ -53,23 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Confirmation\CnfParser.cs" />
-    <Compile Include="Confirmation\JsonWebKeyExtensions.cs" />
-    <Compile Include="Confirmation\SigningKeys.cs" />
-    <Compile Include="Encoded\EncodedList.cs" />
-    <Compile Include="Encoding\EncodingHeaderList.cs" />
-    <Compile Include="Encoding\EncodingList.cs" />
-    <Compile Include="Encoded\EncodedParameters.cs" />
-    <Compile Include="Encoding\EncodingQueryParameters.cs" />
-    <Compile Include="HttpClient\HttpRequestMessageExtensions.cs" />
-    <Compile Include="HttpSigningConstants.cs" />
-    <Compile Include="HttpClient\HttpSigningMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Signatures\RSSignatures.cs" />
-    <Compile Include="Signatures\HSSignatures.cs" />
-    <Compile Include="Signatures\Signature.cs" />
-    <Compile Include="Encoding\EncodingParameters.cs" />
-    <Compile Include="HttpClient\RequestSigningOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\default.licenseheader">
@@ -79,7 +63,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="..\..\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

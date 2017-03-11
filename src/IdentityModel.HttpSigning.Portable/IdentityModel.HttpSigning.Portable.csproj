@@ -22,15 +22,15 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE</DefineConstants>
+    <OutputPath>..\..\build\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE;PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\build\</OutputPath>
     <DefineConstants>TRACE;LIBLOG_PORTABLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,35 +48,35 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="IdentityModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IdentityModel.1.13.1\lib\portable-net45+wp80+win8+wpa81\IdentityModel.dll</HintPath>
+      <HintPath>..\..\packages\IdentityModel.1.13.1\lib\portable-net45+wp80+win8+wpa81\IdentityModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="jose-pcl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\jose-pcl.0.0.4\lib\portable-net45+netcore45+wpa81+wp8\jose-pcl.dll</HintPath>
+      <HintPath>..\..\packages\jose-pcl.0.0.4\lib\portable-net45+netcore45+wpa81+wp8\jose-pcl.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PCLCrypto, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
-      <HintPath>..\packages\PCLCrypto.2.0.147\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\PCLCrypto.dll</HintPath>
+      <HintPath>..\..\packages\PCLCrypto.2.0.147\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\PCLCrypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Validation, Version=2.2.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Validation.2.2.8\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Validation.dll</HintPath>
+      <HintPath>..\..\packages\Validation.2.2.8\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Validation.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

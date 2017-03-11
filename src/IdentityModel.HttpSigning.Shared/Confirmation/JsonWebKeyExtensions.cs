@@ -10,7 +10,11 @@ namespace IdentityModel.Jwt
 {
     public static class JsonWebKeyExtensions
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(JsonWebKeyExtensions));
+#endif
 
         public static SigningKey ToPublicKey(this JsonWebKey key)
         {

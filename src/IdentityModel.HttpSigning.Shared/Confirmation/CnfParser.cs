@@ -37,7 +37,11 @@ namespace IdentityModel.HttpSigning
 
     public class CnfParser
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(CnfParser));
+#endif
 
         static JsonSerializerSettings _jsonSettings = new JsonSerializerSettings
         {

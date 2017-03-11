@@ -10,7 +10,11 @@ namespace IdentityModel.HttpSigning
 {
     public class RequestSigningOptions
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(RequestSigningOptions));
+#endif
 
         public bool SignMethod { get; set; }
         public bool SignHost { get; set; }
@@ -78,6 +82,7 @@ namespace IdentityModel.HttpSigning
                 return Enumerable.Empty<KeyValuePair<string, string>>();
             }
 
+            WwwFormUrlDecoder
             IEnumerable<KeyValuePair<string, string>> query = new FormDataCollection(url);
             if (SignAllQueryParameters == false)
             {

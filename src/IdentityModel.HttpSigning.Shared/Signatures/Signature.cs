@@ -3,15 +3,23 @@
 
 
 using IdentityModel.HttpSigning.Logging;
+#if PORTABLE
+using JosePCL;
+#else
 using Jose;
-using System;
 using System.Security.Cryptography;
+#endif
+using System;
 
 namespace IdentityModel.HttpSigning
 {
     public abstract class Signature
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(Signature));
+#endif
 
         private readonly JwsAlgorithm _alg;
         private readonly object _key;

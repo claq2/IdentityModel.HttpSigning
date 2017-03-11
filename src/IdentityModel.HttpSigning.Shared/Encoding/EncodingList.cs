@@ -13,7 +13,11 @@ namespace IdentityModel.HttpSigning
 {
     public class EncodingList
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(EncodingList));
+#endif
 
         public EncodingList(
             ICollection<KeyValuePair<string, string>> list,
@@ -69,7 +73,7 @@ namespace IdentityModel.HttpSigning
 
         public EncodedList Encode()
         {
-            var bytes = Encoding.ASCII.GetBytes(Value);
+            var bytes = Encoding.UTF8.GetBytes(Value);
             var hash = SHA256.Create().ComputeHash(bytes);
             var value = Base64Url.Encode(hash);
 

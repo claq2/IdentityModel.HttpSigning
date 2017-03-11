@@ -7,15 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.HttpSigning",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.HttpSigning.Tests", "src\IdentityModel.HttpSigning.Tests\IdentityModel.HttpSigning.Tests.csproj", "{6D50DFE6-3A3C-4A58-B416-3991B3723B60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.HttpSigning.Portable", "IdentityModel.HttpSigning.Portable\IdentityModel.HttpSigning.Portable.csproj", "{5391AD18-76F0-48D2-BED0-6649CF10A32A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.HttpSigning.Portable", "src\IdentityModel.HttpSigning.Portable\IdentityModel.HttpSigning.Portable.csproj", "{5391AD18-76F0-48D2-BED0-6649CF10A32A}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IdentityModel.HttpSigning.Shared", "IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.shproj", "{947068AB-F1F7-43A6-8EE4-ADF359B9CF18}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IdentityModel.HttpSigning.Shared", "src\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.shproj", "{947068AB-F1F7-43A6-8EE4-ADF359B9CF18}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{3bc9546f-8d64-4fc8-8e7a-eeb19b7c2fc9}*SharedItemsImports = 4
-		IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{5391ad18-76f0-48d2-bed0-6649cf10a32a}*SharedItemsImports = 4
-		IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{947068ab-f1f7-43a6-8ee4-adf359b9cf18}*SharedItemsImports = 13
+		src\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{5391ad18-76f0-48d2-bed0-6649cf10a32a}*SharedItemsImports = 4
+		src\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{947068ab-f1f7-43a6-8ee4-adf359b9cf18}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

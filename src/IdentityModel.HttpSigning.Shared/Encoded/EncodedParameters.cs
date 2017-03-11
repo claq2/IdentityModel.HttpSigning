@@ -12,7 +12,11 @@ namespace IdentityModel.HttpSigning
 {
     public class EncodedParameters
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(EncodedParameters));
+#endif
 
         public EncodedParameters(string accessToken)
         {

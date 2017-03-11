@@ -12,7 +12,11 @@ namespace IdentityModel.HttpSigning
 {
     public class HttpSigningMessageHandler : DelegatingHandler
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(HttpSigningMessageHandler));
+#endif
 
         private readonly Signature _signature;
         private readonly RequestSigningOptions _options;

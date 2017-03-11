@@ -6,7 +6,11 @@ using IdentityModel.HttpSigning.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if PORTABLE
+using PCLCrypto;
+#else
 using System.Security.Cryptography;
+#endif
 using System.Text;
 
 namespace IdentityModel.HttpSigning
@@ -74,7 +78,12 @@ namespace IdentityModel.HttpSigning
         public EncodedList Encode()
         {
             var bytes = Encoding.UTF8.GetBytes(Value);
+#if PORTABLE
+            var hasher = WinRTCrypto.HashAlgorithmProvider.OpenAlgorithm(HashAlgorithm.Sha256);
+            var hash = hasher.HashData(bytes);
+#else
             var hash = SHA256.Create().ComputeHash(bytes);
+#endif
             var value = Base64Url.Encode(hash);
 
             return new EncodedList(Keys, value);

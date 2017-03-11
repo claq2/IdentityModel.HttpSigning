@@ -5,7 +5,11 @@
 //using Jose;
 using IdentityModel.HttpSigning.Shared.Signatures;
 using System;
+#if PORTABLE
+using PCLCrypto;
+#else
 using System.Security.Cryptography;
+#endif
 
 namespace IdentityModel.HttpSigning
 {

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace IdentityModel.HttpSigning.Shared.Signatures
 {
-    public class JwsAlgorithmMapper
+    internal class JwsAlgorithmMapper
     {
 #if PORTABLE
-         public static Dictionary<JwsAlgorithm, JosePCL.JwsAlgorithms> JwsAlgorithmMapX = new Dictionary<JwsAlgorithm, JosePCL.JwsAlgorithms>
+         public static Dictionary<JwsAlgorithm, string> JwsAlgorithmMap = new Dictionary<JwsAlgorithm, string>
         {
             { JwsAlgorithm.ES256, JosePCL.JwsAlgorithms.ES256 },
             { JwsAlgorithm.ES384, JosePCL.JwsAlgorithms.ES384 },

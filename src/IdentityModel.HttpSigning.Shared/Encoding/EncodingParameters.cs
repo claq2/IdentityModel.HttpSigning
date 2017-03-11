@@ -7,7 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+#if PORTABLE
+using PCLCrypto;
+#else
 using System.Security.Cryptography;
+#endif
 
 namespace IdentityModel.HttpSigning
 {
@@ -89,8 +93,14 @@ namespace IdentityModel.HttpSigning
 
         string CalculateBodyHash()
         {
+#if PORTABLE
+            var hasher = WinRTCrypto.HashAlgorithmProvider.OpenAlgorithm(HashAlgorithm.Sha256);
+            var hash = hasher.HashData(Body);
+            return JosePCL.Serialization.Base64Url.Encode(hash);
+#else
             var hash = SHA256.Create().ComputeHash(Body);
             return Jose.Base64Url.Encode(hash);
+#endif
         }
     }
 }

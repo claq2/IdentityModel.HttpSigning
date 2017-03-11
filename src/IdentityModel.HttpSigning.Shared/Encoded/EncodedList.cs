@@ -11,7 +11,11 @@ namespace IdentityModel.HttpSigning
 {
     public class EncodedList
     {
+#if !LIBLOG_PORTABLE
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
+#else
+        private static readonly ILog Logger = LogProvider.GetLogger(nameof(EncodedList));
+#endif
 
         public EncodedList(IEnumerable<string> keys, string hashValue)
         {

@@ -6,9 +6,10 @@ using IdentityModel.HttpSigning.Logging;
 using IdentityModel.HttpSigning.Shared.Signatures;
 #if PORTABLE
 //using JosePCL;
+using Newtonsoft.Json;
 #else
 //using Jose;
-using System.Security.Cryptography;
+//using System.Security.Cryptography;
 #endif
 using System;
 
@@ -39,7 +40,9 @@ namespace IdentityModel.HttpSigning
 
             var encodedPayload = payload.Encode();
 #if PORTABLE
-            return JosePCL.Jwt.Encode(encodedPayloadString, this._alg, this._key);
+            var encodedPayloadDict = encodedPayload.Encode();
+            var encodedPayloadString = JsonConvert.SerializeObject(encodedPayloadDict);
+            return JosePCL.Jwt.Encode(encodedPayloadString, JwsAlgorithmMapper.JwsAlgorithmMap[_alg], this._key);
 #else
             return Jose.JWT.Encode(encodedPayload.Encode(), _key, JwsAlgorithmMapper.JwsAlgorithmMap[_alg]);
 #endif

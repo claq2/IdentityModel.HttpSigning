@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpClient\RequestSigningOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpSigningConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Signatures\HSSignatures.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Signatures\JwsAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Signatures\RSSignatures.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Signatures\Signature.cs" />
   </ItemGroup>

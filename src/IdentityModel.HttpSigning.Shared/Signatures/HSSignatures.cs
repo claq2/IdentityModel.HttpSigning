@@ -3,11 +3,12 @@
 
 
 #if PORTABLE
-using JosePCL;
+//using JosePCL;
 #else
-using Jose;
+//using Jose;
 //using System.Security.Cryptography;
 #endif
+using IdentityModel.HttpSigning.Shared.Signatures;
 using System;
 
 namespace IdentityModel.HttpSigning

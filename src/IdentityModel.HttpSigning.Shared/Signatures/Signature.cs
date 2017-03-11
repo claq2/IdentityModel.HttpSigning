@@ -3,10 +3,11 @@
 
 
 using IdentityModel.HttpSigning.Logging;
+using IdentityModel.HttpSigning.Shared.Signatures;
 #if PORTABLE
-using JosePCL;
+//using JosePCL;
 #else
-using Jose;
+//using Jose;
 using System.Security.Cryptography;
 #endif
 using System;
@@ -37,7 +38,11 @@ namespace IdentityModel.HttpSigning
             if (payload == null) throw new ArgumentNullException("payload");
 
             var encodedPayload = payload.Encode();
-            return JWT.Encode(encodedPayload.Encode(), _key, _alg);
+#if PORTABLE
+            return JosePCL.Jwt.Encode(encodedPayloadString, this._alg, this._key);
+#else
+            return Jose.JWT.Encode(encodedPayload.Encode(), _key, JwsAlgorithmMapper.JwsAlgorithmMap[_alg]);
+#endif
         }
 
         public EncodedParameters Verify(string token)
@@ -46,7 +51,12 @@ namespace IdentityModel.HttpSigning
 
             try
             {
-                var headers = JWT.Headers(token);
+#if PORTABLE
+                var parts = JosePCL.Serialization.Compact.Parse(token);
+                var headers = JsonConvert.DeserializeObject<IDictionary<string, object>>(parts[0].Utf8);
+#else
+                var headers = Jose.JWT.Headers(token);
+#endif
                 if (headers == null || !headers.ContainsKey(HttpSigningConstants.Jwk.AlgorithmProperty))
                 {
                     Logger.Error("Token does not contain " + HttpSigningConstants.Jwk.AlgorithmProperty + " property in header");
@@ -60,7 +70,11 @@ namespace IdentityModel.HttpSigning
                     return null;
                 }
 
-                var json = JWT.Decode(token, _key);
+#if PORTABLE
+                var json = JosePCL.Jwt.Decode(token, _key);
+#else
+                var json = Jose.JWT.Decode(token, _key);
+#endif
                 if (json == null)
                 {
                     Logger.Error("Failed to decode token");

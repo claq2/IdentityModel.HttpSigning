@@ -13,6 +13,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IdentityModel.HttpSigning.S
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{3bc9546f-8d64-4fc8-8e7a-eeb19b7c2fc9}*SharedItemsImports = 4
 		src\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{5391ad18-76f0-48d2-bed0-6649cf10a32a}*SharedItemsImports = 4
 		src\IdentityModel.HttpSigning.Shared\IdentityModel.HttpSigning.Shared.projitems*{947068ab-f1f7-43a6-8ee4-adf359b9cf18}*SharedItemsImports = 13
 	EndGlobalSection

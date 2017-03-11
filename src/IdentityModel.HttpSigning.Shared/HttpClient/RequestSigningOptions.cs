@@ -82,7 +82,7 @@ namespace IdentityModel.HttpSigning
                 return Enumerable.Empty<KeyValuePair<string, string>>();
             }
 
-            WwwFormUrlDecoder
+            //WwwFormUrlDecoder
             IEnumerable<KeyValuePair<string, string>> query = new FormDataCollection(url);
             if (SignAllQueryParameters == false)
             {

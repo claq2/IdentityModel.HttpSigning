@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdentityModel.HttpSigning.Shared.Signatures
+namespace IdentityModel.HttpSigning
 {
     internal class JwsAlgorithmMapper
     {

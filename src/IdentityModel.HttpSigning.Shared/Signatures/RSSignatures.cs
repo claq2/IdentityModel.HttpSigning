@@ -3,7 +3,6 @@
 
 
 //using Jose;
-using IdentityModel.HttpSigning.Shared.Signatures;
 using System;
 #if PORTABLE
 using PCLCrypto;
@@ -42,6 +41,7 @@ namespace IdentityModel.HttpSigning
 
         public override string Alg { get { return "RS256"; } }
     }
+
     public class RS384Signature : Signature
     {
         public RS384Signature(RSAParameters rsa)
@@ -56,6 +56,7 @@ namespace IdentityModel.HttpSigning
 
         public override string Alg { get { return "RS384"; } }
     }
+
     public class RS512Signature : Signature
     {
         public RS512Signature(RSAParameters rsa)

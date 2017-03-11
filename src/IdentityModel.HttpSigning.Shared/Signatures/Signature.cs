@@ -3,7 +3,6 @@
 
 
 using IdentityModel.HttpSigning.Logging;
-using IdentityModel.HttpSigning.Shared.Signatures;
 #if PORTABLE
 //using JosePCL;
 using Newtonsoft.Json;

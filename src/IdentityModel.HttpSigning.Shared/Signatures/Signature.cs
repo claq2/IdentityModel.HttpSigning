@@ -5,6 +5,7 @@
 using IdentityModel.HttpSigning.Logging;
 #if PORTABLE
 //using JosePCL;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 #else
 //using Jose;

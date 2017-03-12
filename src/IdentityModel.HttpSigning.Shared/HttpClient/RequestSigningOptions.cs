@@ -3,7 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+#if PORTABLE
+using Flurl;
+#else
 using System.Net.Http.Formatting;
+#endif
 using System.Threading.Tasks;
 
 namespace IdentityModel.HttpSigning
@@ -82,8 +86,11 @@ namespace IdentityModel.HttpSigning
                 return Enumerable.Empty<KeyValuePair<string, string>>();
             }
 
-            //WwwFormUrlDecoder
+#if PORTABLE
+            IEnumerable<KeyValuePair<string, string>> query = Url.ParseQueryParams(url.ToString());
+#else
             IEnumerable<KeyValuePair<string, string>> query = new FormDataCollection(url);
+#endif
             if (SignAllQueryParameters == false)
             {
                 query = query.Where(x => QueryParametersToSign.Contains(x.Key));

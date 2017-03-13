@@ -87,7 +87,8 @@ namespace IdentityModel.HttpSigning
             }
 
 #if PORTABLE
-            IEnumerable<KeyValuePair<string, string>> query = Url.ParseQueryParams(url.ToString());
+            var queryParams = Url.ParseQueryParams(url.ToString());
+            IEnumerable<KeyValuePair<string, string>> query = queryParams.Select(qp => new KeyValuePair<string, string>(qp.Name, (string)qp.Value));
 #else
             IEnumerable<KeyValuePair<string, string>> query = new FormDataCollection(url);
 #endif

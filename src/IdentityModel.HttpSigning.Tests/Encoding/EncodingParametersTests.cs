@@ -11,7 +11,6 @@ using Xunit;
 using FluentAssertions;
 using IdentityModel.HttpSigning;
 using System.Net.Http;
-using System.Security.Cryptography;
 
 namespace IdentityModel.HttpSigning.Tests
 {
@@ -111,6 +110,5 @@ namespace IdentityModel.HttpSigning.Tests
             var result = subject.Encode();
             result.BodyHash.Should().Be("vnPfBFvKBXMv9S6m1FMSeSi1VLnnmqYXGr4xk9ImCp8");
         }
-
     }
 }

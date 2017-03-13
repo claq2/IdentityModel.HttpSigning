@@ -13,6 +13,14 @@ namespace IdentityModel.HttpSigning
 {
     static class RSAParametersExtensions
     {
+#if PORTABLE
+        public static ICryptographicKey ToRSACryptoServiceProvider(this RSAParameters rsa)
+        {
+            IAsymmetricKeyAlgorithmProvider provider = WinRTCrypto.AsymmetricKeyAlgorithmProvider.OpenAlgorithm(AsymmetricAlgorithm.RsaPkcs1);
+            var key = provider.ImportParameters(rsa);
+            return key;
+        }
+#else
         public static RSACryptoServiceProvider ToRSACryptoServiceProvider(this RSAParameters rsa)
         {
             var csp = new CspParameters();
@@ -24,6 +32,7 @@ namespace IdentityModel.HttpSigning
 
             return prov;
         }
+#endif
     }
 
     public class RS256Signature : Signature
@@ -33,7 +42,11 @@ namespace IdentityModel.HttpSigning
         {
         }
 
+#if PORTABLE
+        public RS256Signature(ICryptographicKey key)
+#else
         public RS256Signature(RSACryptoServiceProvider key)
+#endif
             : base(JwsAlgorithm.RS256, key)
         {
         }
@@ -48,7 +61,11 @@ namespace IdentityModel.HttpSigning
         {
         }
 
+#if PORTABLE
+        public RS384Signature(ICryptographicKey key)
+#else
         public RS384Signature(RSACryptoServiceProvider key)
+#endif
             : base(JwsAlgorithm.RS384, key)
         {
         }
@@ -63,7 +80,11 @@ namespace IdentityModel.HttpSigning
         {
         }
 
+#if PORTABLE
+        public RS512Signature(ICryptographicKey key)
+#else
         public RS512Signature(RSACryptoServiceProvider key)
+#endif
             : base(JwsAlgorithm.RS512, key)
         {
         }

@@ -45,7 +45,7 @@ namespace IdentityModel.HttpSigning.Tests
             request.Content = new FormUrlEncodedContent(content);
 
             var bytes = await request.ReadBodyAsync();
-            var body = Encoding.UTF8.GetString(bytes);
+            var body = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
             body.Should().Be("a=apple&b=banana");
         }
 
@@ -56,7 +56,7 @@ namespace IdentityModel.HttpSigning.Tests
             request.Content = new StringContent("hello");
 
             var bytes = await request.ReadBodyAsync();
-            var body = Encoding.UTF8.GetString(bytes);
+            var body = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
             body.Should().Be("hello");
         }
 

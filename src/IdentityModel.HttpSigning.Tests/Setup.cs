@@ -2,7 +2,9 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+#if !WINDOWS_PHONE_APP
 using Serilog;
+#endif
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +19,12 @@ namespace IdentityModel.HttpSigning.Tests
         [Fact]
         public void logging()
         {
+#if !WINDOWS_PHONE_APP
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .WriteTo.Trace()
                 .CreateLogger();
+#endif
         }
     }
 }

@@ -9,7 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using FluentAssertions;
+#if WINDOWS_PHONE_APP
+using JosePCL;
+using PCLCrypto;
+#else
 using Jose;
+#endif
 using Newtonsoft.Json;
 
 namespace IdentityModel.HttpSigning.Tests
@@ -17,8 +22,15 @@ namespace IdentityModel.HttpSigning.Tests
     public class SignatureTests
     {
         static readonly byte[] _symmetricKey = new byte[] { 164, 60, 194, 0, 161, 189, 41, 38, 130, 89, 141, 164, 45, 170, 159, 209, 69, 137, 243, 216, 191, 131, 47, 250, 32, 107, 231, 117, 37, 158, 225, 234 };
+#if WINDOWS_PHONE_APP
+        static ICryptographicKey _asymmetricKey;
+        static SignatureTests()
+        {
+            var provider = WinRTCrypto.AsymmetricKeyAlgorithmProvider.OpenAlgorithm(AsymmetricAlgorithm.RsaPkcs1);
+            _asymmetricKey = provider.CreateKeyPair(2048);
+        }
+#else
         static System.Security.Cryptography.RSACryptoServiceProvider _asymmetricKey;
-
         static SignatureTests()
         {
             var csp = new System.Security.Cryptography.CspParameters();
@@ -26,6 +38,9 @@ namespace IdentityModel.HttpSigning.Tests
             csp.KeyNumber = (int)System.Security.Cryptography.KeyNumber.Signature;
             _asymmetricKey = new System.Security.Cryptography.RSACryptoServiceProvider(2048, csp);
         }
+#endif
+
+
 
         [Fact]
         public void symmetric_signed_result_should_be_able_to_verifed()

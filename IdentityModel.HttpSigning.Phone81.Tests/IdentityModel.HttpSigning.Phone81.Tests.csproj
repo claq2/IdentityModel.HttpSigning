@@ -137,7 +137,6 @@
     <Compile Include="..\src\IdentityModel.HttpSigning.Tests\Signatures\SignatureTests.cs">
       <Link>Signatures\SignatureTests.cs</Link>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

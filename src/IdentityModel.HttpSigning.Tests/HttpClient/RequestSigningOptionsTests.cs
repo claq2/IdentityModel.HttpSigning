@@ -84,7 +84,7 @@ namespace IdentityModel.HttpSigning.Tests
             _subject.SignBody = true;
             var parameters = await _subject.CreateEncodingParametersAsync(request);
 
-            Encoding.UTF8.GetString(parameters.Body).Should().Be("hello");
+            Encoding.UTF8.GetString(parameters.Body, 0, parameters.Body.Length).Should().Be("hello");
         }
 
         [Fact]
